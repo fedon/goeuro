@@ -9,13 +9,16 @@ import javax.ws.rs.core.MediaType;
 import org.fedon.goeuro.model.GeoSuggest;
 
 /**
+ * 3rd party rest API emulation.
+ * 
  * @author Dmytro Fedonin
- *
+ * 
  */
+@Path("/position")
 public interface ExternalGeoService {
 
     /**
-     * 3rd party rest API emulation. Language may be another argument. For test purpose it is hardcoded.
+     * Language may be another argument. For test purpose it is hardcoded.
      * 
      * @param pattern
      * @return
@@ -23,5 +26,5 @@ public interface ExternalGeoService {
     @GET
     @Path("/suggest/en/{pattern}")
     @Produces(MediaType.APPLICATION_JSON)
-    public GeoSuggest suggestEng(@PathParam("pattern") String pattern);
+    public GeoSuggest[] suggestEng(@PathParam("pattern") String pattern);
 }
