@@ -1,5 +1,7 @@
 package org.fedon.goeuro.dao;
 
+import java.util.Arrays;
+
 import org.fedon.goeuro.model.GeoSuggest;
 
 /**
@@ -11,6 +13,6 @@ import org.fedon.goeuro.model.GeoSuggest;
 public class GeoCsvDao {
 
     public void write(GeoSuggest[] data) {
-        System.out.println("data: " + data);
+        System.out.println("data: " + Arrays.toString(data));
     }
 }

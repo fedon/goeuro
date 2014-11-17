@@ -16,4 +16,9 @@ public class GeoPosition {
 
     BigDecimal latitude;
     BigDecimal longitude;
+
+    @Override
+    public String toString() {
+        return "GeoPosition [latitude=" + latitude + ", longitude=" + longitude + "]";
+    }
 }

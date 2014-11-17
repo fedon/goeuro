@@ -31,4 +31,11 @@ public class GeoSuggest {
     String countryCode;
     boolean coreCountry;
     BigDecimal distance;
+
+    @Override
+    public String toString() {
+        return "GeoSuggest [id=" + id + ", key=" + key + ", name=" + name + ", fullName=" + fullName + ", airportCodeIATA=" + airportCodeIATA
+                + ", type=" + type + ", country=" + country + ", position=" + position + ", locationId=" + locationId + ", inEurope=" + inEurope
+                + ", countryCode=" + countryCode + ", coreCountry=" + coreCountry + ", distance=" + distance + "]";
+    }
 }
