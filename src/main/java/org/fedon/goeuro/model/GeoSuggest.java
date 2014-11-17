@@ -26,7 +26,6 @@ public class GeoSuggest {
     String country;
     @XmlElement(name = "geo_position")
     GeoPosition position;
-    @XmlElement(name = "location_id")
     long locationId;
     boolean inEurope;
     String countryCode;
