@@ -21,4 +21,8 @@ public class GeoPosition {
     public String toString() {
         return "GeoPosition [latitude=" + latitude + ", longitude=" + longitude + "]";
     }
+
+    public String toCsv() {
+        return "|" + latitude + "|" + longitude;
+    }
 }

@@ -38,4 +38,8 @@ public class GeoSuggest {
                 + ", type=" + type + ", country=" + country + ", position=" + position + ", locationId=" + locationId + ", inEurope=" + inEurope
                 + ", countryCode=" + countryCode + ", coreCountry=" + coreCountry + ", distance=" + distance + "]";
     }
+
+    public String toCsv() {
+        return Long.toString(id) + "|" + name + "|" + type + position.toCsv();
+    }
 }

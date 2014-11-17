@@ -5,3 +5,6 @@ target/
 .project
 .settings/
 test-output/
+
+# goeuro test output
+goeuro-test.csv
