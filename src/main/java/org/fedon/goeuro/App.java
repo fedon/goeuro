@@ -14,10 +14,11 @@ public class App
  {
         String pattern = null;
         String host = null;
-        if (args.length > 0)
-            pattern = args[0];
-        else
-            System.out.println("Usage: pattern [host]\nWhere pattern is a location name to search.");
+        if (args.length == 0) {
+            System.out.println("Usage: pattern [host]\nwhere pattern -- location name to search.");
+            return;
+        }
+        pattern = args[0];
         if (args.length > 1)
             host = args[1];
         // TODO consider Guice
