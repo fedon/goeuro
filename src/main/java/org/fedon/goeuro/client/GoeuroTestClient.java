@@ -14,7 +14,7 @@ import org.glassfish.jersey.client.proxy.WebResourceFactory;
  */
 public class GoeuroTestClient {
 
-    public void callExternalGeoSuggestService(String pattern, String host) {
+    public GeoSuggest[] callExternalGeoSuggestService(String pattern, String host) {
         String defaulHost = "api.goeuro.com";
         if (host == null)
             host = defaulHost;
@@ -23,6 +23,6 @@ public class GoeuroTestClient {
         Client resource = ClientBuilder.newClient(cc);
         ExternalGeoService client = WebResourceFactory.newResource(ExternalGeoService.class, resource.target(base));
 
-        GeoSuggest[] result = client.suggestEng(pattern);
+        return client.suggestEng(pattern);
     }
 }
