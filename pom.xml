@@ -38,6 +38,43 @@
             <version>${jersey.version}</version>
         </dependency>
     </dependencies>
+    
+    <build>
+        <plugins>
+            <!-- Make this jar fat -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>    
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>assemble-all</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Make this jar executable -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                     <archive>
+                        <manifest>
+                      <mainClass>com.fedon.goeuro.App</mainClass>
+                        </manifest>
+                     </archive>
+                </configuration>
+            </plugin> 
+        </plugins>
+    </build>
     <properties>
         <jersey.version>2.5</jersey.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
