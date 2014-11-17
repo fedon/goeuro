@@ -1,8 +1,9 @@
 package org.fedon.goeuro;
 
 /**
- * Hello world!
- *
+ * Main application class.
+ * 
+ * @author Dmytro Fedonin
  */
 public class App 
 {
