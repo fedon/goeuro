@@ -10,7 +10,7 @@ import org.fedon.goeuro.model.GeoSuggest;
  */
 public class GeoCsvDao {
 
-    void write(GeoSuggest[] data) {
+    public void write(GeoSuggest[] data) {
         System.out.println("data: " + data);
     }
 }
