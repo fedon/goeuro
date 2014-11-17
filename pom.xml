@@ -19,13 +19,6 @@
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
             <version>2.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>javax.ws.rs</groupId>
-            <artifactId>jsr311-api</artifactId>
-            <version>1.1.1</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.glassfish.jersey.core</groupId>
@@ -43,36 +36,29 @@
         <plugins>
             <!-- Make this jar fat -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.5.1</version>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>2.3</version>
+            <executions>
+              <execution>
+                <phase>package</phase>
+                <goals>
+                  <goal>shade</goal>
+                </goals>
                 <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>    
+                  <transformers>
+                    <!-- add Main-Class to manifest file -->
+                                    <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                        <mainClass>org.fedon.goeuro.App</mainClass>
+                    </transformer>
+                  </transformers>
+                  <dependencyReducedPomLocation>
+                    ${project.build.directory}/dependency-reduced-pom.xml
+                  </dependencyReducedPomLocation>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>assemble-all</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <!-- Make this jar executable -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                     <archive>
-                        <manifest>
-                      <mainClass>com.fedon.goeuro.App</mainClass>
-                        </manifest>
-                     </archive>
-                </configuration>
-            </plugin> 
+              </execution>
+            </executions>
+          </plugin>
         </plugins>
     </build>
     <properties>
